@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         var shopsItems = new ArrayList<String>(); // same but another option is "ArrayList<String> shopsItems = new ArrayList<String>();"
         //Initializes an ArrayList, creates a new object (ArrayList) and gives a reference
-       // opening scanner for user input
+        // opening scanner for user input
         var scanner = new Scanner(System.in);
 
         while(true){ // opening while loop et saaks mitu korda user inputi, aga peab loopi breakima, sest see lõpmatu loop muidu, seega tuleb if exit panna.
@@ -23,14 +23,14 @@ public class Main {
 
         printArrayList(shopsItems); // see prindib kõik itemid üksteise alla välja
 
-    // removing an element
+        // removing an element
         System.out.println("Enter the item you want to remove from the list:");
         var itemToRemove = scanner.nextLine(); // Asks the user for input
         shopsItems.removeIf(item -> item.equals(itemToRemove));
 
         printArrayList(shopsItems); // prindime uuesti listi välja
 
-// kui tahad filtreerida välja specific asjad. nt filtreerime listist välja asjad, mis on pikemad kui 5 characters
+        // kui tahad filtreerida välja specific asjad. nt filtreerime listist välja asjad, mis on pikemad kui 5 characters
         var filteredArrayList = new ArrayList<String>();
         for (String item: shopsItems){
             if(item.length() <= 5){
@@ -46,17 +46,13 @@ public class Main {
             System.out.println(item);
         }
     }
-// adding an item to the store
+    // adding an item to the store
     ArrayList<String> shopsItems = new ArrayList<String>();
         items.add(item);
         System.out.println(item + " has been added to the store.");
     }
 }
 
-//Initialize ArrayList
-// Create an element in the arrayList
-// Remove an element
-// Get the elements
 ```
 ```java
 import java.util.ArrayList;
