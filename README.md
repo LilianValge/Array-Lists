@@ -40,10 +40,58 @@ public class Main {
 // Get the elements
 ```
 ```java
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
 
+public class Main {
+    public static void main(String[] args) {
+        var shopsItems = new ArrayList<String>();
+        shopsItems.add("Glass table");        
+        shopsItems.add("Wooden table");
+        shopsItems.add("Round table");
+        shopsItems.add("Doors");
+        shopsItems.add("Trapdoor");
+        shopsItems.add("Couch");
+        shopsItems.add("Bed");
+        shopsItems.add("Sofa");
+
+        var filteredShopsItems = new ArrayList<String>();
+        for(var item: shopsItems){
+            if(item.contains("table")){ // otsib üles kõik tooted mis sisaldavad table sõna
+                filteredShopsItems.add(item);
+            }
+        }
+        System.out.println(filteredShopsItems);
+    }
+}
 ```
 ```java
+// sama nagu eelmine kood
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        var shopsItems = new ArrayList<String>();
+        shopsItems.add("Glass table");        
+        shopsItems.add("Wooden table");
+        shopsItems.add("Round table");
+        shopsItems.add("Trapdoor");
+        shopsItems.add("Couch");
+        shopsItems.add("Bed");
+        shopsItems.add("Sofa");
+
+        var filteredShopsItems = shopsItems
+            .stream()
+            .filter(item -> item.contains("table"))
+            .collect(Collectors.toList());
+
+        System.out.print(filteredShopsItems);
+    }
+}
 ```
 ```java
 
