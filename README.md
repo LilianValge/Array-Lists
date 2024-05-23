@@ -7,28 +7,47 @@ import java.util.Scanner;
 public class Main {
     //shopsItems here
     public static void main(String[] args) {
-        var shopsItems = new ArrayList<String>();
-        //Initializes an ArrayList, creates a new object and gives a reference
+        var shopsItems = new ArrayList<String>(); // same but another option is "ArrayList<String> shopsItems = new ArrayList<String>();"
+        //Initializes an ArrayList, creates a new object (ArrayList) and gives a reference
+       // opening scanner for user input
         var scanner = new Scanner(System.in);
-        while(true){
-            var item = scanner.nextLine();
+
+        while(true){ // opening while loop et saaks mitu korda user inputi, aga peab loopi breakima, sest see lõpmatu loop muidu, seega tuleb if exit panna.
+            var item = scanner.nextLine(); // here asking input
+        // kui loopist väljuda, siis user kirjutab exit ja siis ta prindib kõik itemsid välja
             if(item.equals("exit")){
                 break;
             }
-            addItem(shopsItems, item);
+            addItem(shopsItems, item); // selle saab lisada siis, kui on "ArrayList<String> shopsItems = new ArrayList<String>();" method lisatud, lisab itemi store
         }
 
+        printArrayList(shopsItems); // see prindib kõik itemid üksteise alla välja
 
-        printArrayList(shopsItems);
+    // removing an element
+        System.out.println("Enter the item you want to remove from the list:");
+        var itemToRemove = scanner.nextLine(); // Asks the user for input
+        shopsItems.removeIf(item -> item.equals(itemToRemove));
+
+        printArrayList(shopsItems); // prindime uuesti listi välja
+
+// kui tahad filtreerida välja specific asjad. nt filtreerime listist välja asjad, mis on pikemad kui 5 characters
+        var filteredArrayList = new ArrayList<String>();
+        for (String item: shopsItems){
+            if(item.length() <= 5){
+                filteredArrayList.add(item);
+
+            }
+        }
+        printArrayList(filteredArrayList);
     }
-
+     // going through elements
     public static void printArrayList(ArrayList<String> items){
-        for (String item : items){
+        for (String item : items){ // : means going through each element, can be any other word instead of item(s). aga on items sest rida ülevamalpol kutsusime itemsiks.
             System.out.println(item);
         }
     }
-
-    public static void addItem(ArrayList<String> items, String item){
+// adding an item to the store
+    ArrayList<String> shopsItems = new ArrayList<String>();
         items.add(item);
         System.out.println(item + " has been added to the store.");
     }
